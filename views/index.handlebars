@@ -5,46 +5,60 @@
 
         <p>Manage eating burgers with this app</p>
     </div>
-</div>
 
-<!-- Pass in data from server.js -->
-<ul>
-    {{#each burger_name}}
-    <li>
-        <p><span class="label">ID:</span> {{this.id}}</p>
-        <p><span class="label">Burger Type:</span> {{this.burger_name}}</p>
-        <p><span class="label">Eaten?</span> {{this.devoured}}</p>
+    <div class="row">
+        <div class="col-6">
+            <!-- Pass in data from server.js -->
+            <div class="card-body">
+                <h5 class="card-title">Existing Burgers</h5>
+                <p class="card-text">
+                    <ul>
+                        {{#each burgers}}
 
-        <button data-id="{{this.id}}" class="delquote">Delete</button>
+                        <li>
+                            <p><span class="label">ID:</span> {{this.id}}</p>
+                            <p><span class="label">Burger Type:</span> {{this.burger_name}}
+                                <button data-id="{{this.id}}" class="delquote">Delete</button>
 
-        <a href="/{{this.id}}">Update this Burger</a>
-    </li>
-    {{/each}}
-</ul>
+                                <a href="/{{this.id}}">Update this Burger</a>
+                            </p>
+                            <p><span class="label">Eaten?</span> {{this.devoured}}</p>
 
 
+                        </li>
+                        {{/each}}
+                    </ul>
+                </p>
 
+            </div>
 
-<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Add Your Own Burger</h5>
-        <p class="card-text">
-            <form class="create-form">
+        </div>
+        
+        <div class="col-6">
+            
+            <div class="card" style="width: 18rem;">
+                <img src="/public/assets/img/burger2.jpg" class="card-img-top" alt="image of a burger">
+                <div class="card-body">
+                    <h5 class="card-title">Add Your Own Burger</h5>
+                    <p class="card-text">
+                        <form class="create-form">
 
-                <div class="form-group">
-                    <label for="burg">Burger:</label>
-                    <input type="text" id="burg" name="burger">
+                            <div class="form-group">
+                                <label for="burg">Burger:</label>
+                                <input type="text" id="burg" name="burger">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dev">Eaten:</label>
+                                <input type="text" id="dev" name="devoured">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Add a Burger</button>
+                        </form>
+                    </p>
+
                 </div>
-
-                <div class="form-group">
-                    <label for="dev">Eaten:</label>
-                    <input type="text" id="dev" name="devoured">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Add a Burger</button>
-            </form>
-        </p>
-       
+            </div>
+        </div>
     </div>
 </div>
